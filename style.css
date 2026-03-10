@@ -42,24 +42,36 @@ h1 {
 .balls-container {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 2.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* 무조건 한 줄로 표시 */
 }
 
 .ball {
-  width: 55px;
-  height: 55px;
+  flex-shrink: 0; /* 크기가 줄어들지 않도록 설정 */
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 480px) {
+  .balls-container {
+    gap: 5px;
+  }
+  .ball {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
 }
 
 .ball.placeholder {
